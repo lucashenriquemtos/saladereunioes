@@ -39,8 +39,6 @@ public class RoomController {
         return ResponseEntity.ok().body(room);
     }
 
-}
-
     @PostMapping("/rooms")
     public Room createRoom(@Valid @RequestBody Room room) {
         return roomRepository.save(room);
@@ -71,5 +69,4 @@ public class RoomController {
         response.put("Deleted", Boolean.TRUE);
         return response;
     }
-}
 }
