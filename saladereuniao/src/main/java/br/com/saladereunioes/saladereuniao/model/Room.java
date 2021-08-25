@@ -2,6 +2,7 @@ package br.com.saladereunioes.saladereuniao.model;
 
 import org.hibernate.annotations.Columns;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -40,7 +41,7 @@ public class Room {
         this.id = id;
     }
 
-    @Columns(name = "name", nullable = false)
+    @Column(name = "name", nullable = false)
     public String getName() {
         return name;
     }
@@ -49,7 +50,7 @@ public class Room {
         this.name = name;
     }
 
-    @Columns(name = "date", nullable = false)
+    @Column(name = "date", nullable = false)
     public String getDate() {
         return date;
     }
@@ -58,7 +59,7 @@ public class Room {
         this.date = date;
     }
 
-    @Columns(name = "startHour", nullable = false)
+    @Column(name = "startHour", nullable = false)
     public String getStartHour() {
         return startHour;
     }
@@ -67,7 +68,7 @@ public class Room {
         this.startHour = startHour;
     }
 
-    @Columns(name = "endHour", nullable = false)
+    @Column(name = "endHour", nullable = false)
     public String getEndHour() {
         return endHour;
     }
