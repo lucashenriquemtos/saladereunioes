@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Room} from "../room";
+import {ActivatedRoute, Router} from "@angular/router";
+import {RoomService} from "../room.service";
 
 @Component({
   selector: 'app-room-detais',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomDetaisComponent implements OnInit {
 
-  constructor() { }
+  id!: number
+  room!: Room
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute, private router: Router,
+              private roomService: RoomService) {
   }
+
+  ngOnInit() {
+    this.room = new Room();
+    this.id = this.route.snapshot.params['id'];
+    this.roomService.getRoom(this.id)
+      .subscribe((data: Room) => {
+          console.log(data)
+          this.room = data;
+        },
+        (error: any) => console.log(error))
+  }
+  list(){
+    this.router.navigate(['rooms']);
+  }
+
 
 }
