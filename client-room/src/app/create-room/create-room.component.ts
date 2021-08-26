@@ -33,7 +33,7 @@ export class CreateRoomComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted=true;
+    this.submitted = true;
     this.save();
   }
 
